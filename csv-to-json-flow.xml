@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template>
+    <description>This flow shows how to convert a CSV entry to a JSON document using ExtractText and ReplaceText.</description>
+    <name>CsvToJSON</name>
+    <snippet>
+        <connections>
+            <id>a06404c1-34a4-48e9-869d-ae67511e1d34</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>0</backPressureObjectThreshold>
+            <destination>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>af418612-6920-4348-a892-d5e8ebae7e1f</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>f6929630-aabd-4047-8199-45d529ba00dc</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>00e6e639-ae9b-4c26-b6d1-bc132c28d2fe</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>0</backPressureObjectThreshold>
+            <destination>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>5d4cd549-2624-49cc-a82d-f58a9575a471</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>f60357a4-9506-4b72-a477-73e45e44bfaf</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>99f0c5c8-2073-48ae-97e9-1111392a752f</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>0</backPressureObjectThreshold>
+            <destination>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>f6929630-aabd-4047-8199-45d529ba00dc</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>7063134a-d245-4cf2-8d07-5f252ab40c85</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>8ebcbe04-54a7-442f-bfaa-74572a86a558</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <backPressureDataSizeThreshold>0 MB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>0</backPressureObjectThreshold>
+            <destination>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>f60357a4-9506-4b72-a477-73e45e44bfaf</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <name></name>
+            <selectedRelationships>matched</selectedRelationships>
+            <source>
+                <groupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</groupId>
+                <id>af418612-6920-4348-a892-d5e8ebae7e1f</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <labels>
+            <id>c89fa7cb-d7b1-42da-aa21-8cb417aa8ac8</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>342.09998474121096</x>
+                <y>270.8</y>
+            </position>
+            <height>281.4172668457031</height>
+            <label></label>
+            <style/>
+            <width>388.0479431152344</width>
+        </labels>
+        <processors>
+            <id>af418612-6920-4348-a892-d5e8ebae7e1f</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>386.6000061035156</x>
+                <y>284.5999755859375</y>
+            </position>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <defaultConcurrentTasks>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>EVENT_DRIVEN</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                </defaultConcurrentTasks>
+                <defaultSchedulingPeriod>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>* * * * * ?</value>
+                    </entry>
+                </defaultSchedulingPeriod>
+                <descriptors>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <defaultValue>UTF-8</defaultValue>
+                            <description>The Character Set in which the file is encoded</description>
+                            <displayName>Character Set</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Character Set</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <defaultValue>1 MB</defaultValue>
+                            <description>Specifies the maximum amount of data to buffer (per file) in order to apply the
+                                regular expressions. Files larger than the specified maximum will not be fully
+                                evaluated.
+                            </description>
+                            <displayName>Maximum Buffer Size</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Maximum Buffer Size</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Capture Group Length</key>
+                        <value>
+                            <defaultValue>1024</defaultValue>
+                            <description>Specifies the maximum number of characters a given capture group value can
+                                have. Any characters beyond the max will be truncated.
+                            </description>
+                            <displayName>Maximum Capture Group Length</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Maximum Capture Group Length</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Canonical Equivalence</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that two characters match only when their full canonical
+                                decompositions match.
+                            </description>
+                            <displayName>Enable Canonical Equivalence</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Canonical Equivalence</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Case-insensitive Matching</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that two characters match even if they are in a different case. Can
+                                also be specified via the embeded flag (?i).
+                            </description>
+                            <displayName>Enable Case-insensitive Matching</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Case-insensitive Matching</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Permit Whitespace and Comments in Pattern</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>In this mode, whitespace is ignored, and embedded comments starting with # are
+                                ignored until the end of a line. Can also be specified via the embeded flag (?x).
+                            </description>
+                            <displayName>Permit Whitespace and Comments in Pattern</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Permit Whitespace and Comments in Pattern</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable DOTALL Mode</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that the expression '.' should match any character, including a line
+                                terminator. Can also be specified via the embeded flag (?s).
+                            </description>
+                            <displayName>Enable DOTALL Mode</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable DOTALL Mode</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Literal Parsing of the Pattern</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that Metacharacters and escape characters should be given no special
+                                meaning.
+                            </description>
+                            <displayName>Enable Literal Parsing of the Pattern</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Literal Parsing of the Pattern</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Multiline Mode</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that '^' and '$' should match just after and just before a line
+                                terminator or end of sequence, instead of only the begining or end of the entire input.
+                                Can also be specified via the embeded flag (?m).
+                            </description>
+                            <displayName>Enable Multiline Mode</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Multiline Mode</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unicode-aware Case Folding</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>When used with 'Enable Case-insensitive Matching', matches in a manner
+                                consistent with the Unicode Standard. Can also be specified via the embeded flag (?u).
+                            </description>
+                            <displayName>Enable Unicode-aware Case Folding</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Unicode-aware Case Folding</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unicode Predefined Character Classes</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Specifies conformance with the Unicode Technical Standard #18: Unicode Regular
+                                Expression Annex C: Compatibility Properties. Can also be specified via the embeded flag
+                                (?U).
+                            </description>
+                            <displayName>Enable Unicode Predefined Character Classes</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Unicode Predefined Character Classes</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unix Lines Mode</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>Indicates that only the '
+                                ' line terminator is recognized in the behavior of '.', '^', and '$'. Can also be
+                                specified via the embeded flag (?d).
+                            </description>
+                            <displayName>Enable Unix Lines Mode</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Enable Unix Lines Mode</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Include Capture Group 0</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>true</defaultValue>
+                            <description>Indicates that Capture Group 0 should be included as an attribute. Capture
+                                Group 0 represents the entirety of the regular expression match, is typically not used,
+                                and could have considerable length.
+                            </description>
+                            <displayName>Include Capture Group 0</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Include Capture Group 0</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>csv</key>
+                        <value>
+                            <description></description>
+                            <displayName>csv</displayName>
+                            <dynamic>true</dynamic>
+                            <name>csv</name>
+                            <required>false</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Capture Group Length</key>
+                        <value>1024</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Canonical Equivalence</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Case-insensitive Matching</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Permit Whitespace and Comments in Pattern</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable DOTALL Mode</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Literal Parsing of the Pattern</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Multiline Mode</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unicode-aware Case Folding</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unicode Predefined Character Classes</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Enable Unix Lines Mode</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Include Capture Group 0</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>csv</key>
+                        <value>(.+),(.+),(.+),(.+)</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <name>ExtractText</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <description>FlowFiles are routed to this relationship when the Regular Expression is successfully
+                    evaluated and the FlowFile is modified as a result
+                </description>
+                <name>matched</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <description>FlowFiles are routed to this relationship when no provided Regular Expression matches the
+                    content of the FlowFile
+                </description>
+                <name>unmatched</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <supportsEventDriven>true</supportsEventDriven>
+            <supportsParallelProcessing>true</supportsParallelProcessing>
+            <type>org.apache.nifi.processors.standard.ExtractText</type>
+        </processors>
+        <processors>
+            <id>f60357a4-9506-4b72-a477-73e45e44bfaf</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>393.0</x>
+                <y>440.3999938964844</y>
+            </position>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <defaultConcurrentTasks>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>EVENT_DRIVEN</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                </defaultConcurrentTasks>
+                <defaultSchedulingPeriod>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>* * * * * ?</value>
+                    </entry>
+                </defaultSchedulingPeriod>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <defaultValue>(?s:^.*$)</defaultValue>
+                            <description>The Regular Expression to search for in the FlowFile content</description>
+                            <displayName>Regular Expression</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Regular Expression</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <defaultValue>$1</defaultValue>
+                            <description>The value to replace the regular expression with. Back-references to Regular
+                                Expression capturing groups are supported, but back-references that reference capturing
+                                groups that do not exist in the regular expression will be treated as literal value.
+                            </description>
+                            <displayName>Replacement Value</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Replacement Value</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <defaultValue>UTF-8</defaultValue>
+                            <description>The Character Set in which the file is encoded</description>
+                            <displayName>Character Set</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Character Set</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <defaultValue>1 MB</defaultValue>
+                            <description>Specifies the maximum amount of data to buffer (per file or per line, depending
+                                on the Evaluation Mode) in order to apply the regular expressions. If 'Entire Text' (in
+                                Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile
+                                will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than
+                                this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is
+                                provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB
+                                or 16 KB is suggested. This value is ignored and the buffer is not used if 'Regular
+                                Expression' is set to '.*'
+                            </description>
+                            <displayName>Maximum Buffer Size</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Maximum Buffer Size</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>Line-by-Line</displayName>
+                                <value>Line-by-Line</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>Entire text</displayName>
+                                <value>Entire text</value>
+                            </allowableValues>
+                            <defaultValue>Entire text</defaultValue>
+                            <description>Evaluate the 'Regular Expression' against each line (Line-by-Line) or buffer
+                                the entire file into memory (Entire Text) and then evaluate the 'Regular Expression'.
+                            </description>
+                            <displayName>Evaluation Mode</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Evaluation Mode</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>(?s:^.*$)</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>{ &quot;field1&quot; : &quot;${csv.1}&quot;, &quot;field2&quot; : &quot;${csv.2}&quot;,
+                            &quot;field3&quot; : &quot;${csv.3}&quot;, &quot;field4&quot; : &quot;${csv.4}&quot; }
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Entire text</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <name>ReplaceText</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <description>FlowFiles that could not be updated are routed to this relationship</description>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <description>FlowFiles that have been successfully updated are routed to this relationship, as well as
+                    FlowFiles whose content does not match the given Regular Expression
+                </description>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <supportsEventDriven>true</supportsEventDriven>
+            <supportsParallelProcessing>true</supportsParallelProcessing>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+        </processors>
+        <processors>
+            <id>5d4cd549-2624-49cc-a82d-f58a9575a471</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>389.6000061035156</x>
+                <y>595.0</y>
+            </position>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <defaultConcurrentTasks>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>EVENT_DRIVEN</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                </defaultConcurrentTasks>
+                <defaultSchedulingPeriod>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>* * * * * ?</value>
+                    </entry>
+                </defaultSchedulingPeriod>
+                <descriptors/>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties/>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <name>UpdateAttribute</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <description>All FlowFiles are routed to this relationship</description>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <supportsEventDriven>true</supportsEventDriven>
+            <supportsParallelProcessing>true</supportsParallelProcessing>
+            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+        </processors>
+        <processors>
+            <id>f6929630-aabd-4047-8199-45d529ba00dc</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>379.0000305175781</x>
+                <y>127.59999084472656</y>
+            </position>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <defaultConcurrentTasks>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>EVENT_DRIVEN</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                </defaultConcurrentTasks>
+                <defaultSchedulingPeriod>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>* * * * * ?</value>
+                    </entry>
+                </defaultSchedulingPeriod>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <defaultValue>(?s:^.*$)</defaultValue>
+                            <description>The Regular Expression to search for in the FlowFile content</description>
+                            <displayName>Regular Expression</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Regular Expression</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <defaultValue>$1</defaultValue>
+                            <description>The value to replace the regular expression with. Back-references to Regular
+                                Expression capturing groups are supported, but back-references that reference capturing
+                                groups that do not exist in the regular expression will be treated as literal value.
+                            </description>
+                            <displayName>Replacement Value</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Replacement Value</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>true</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <defaultValue>UTF-8</defaultValue>
+                            <description>The Character Set in which the file is encoded</description>
+                            <displayName>Character Set</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Character Set</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <defaultValue>1 MB</defaultValue>
+                            <description>Specifies the maximum amount of data to buffer (per file or per line, depending
+                                on the Evaluation Mode) in order to apply the regular expressions. If 'Entire Text' (in
+                                Evaluation Mode) is selected and the FlowFile is larger than this value, the FlowFile
+                                will be routed to 'failure'. In 'Line-by-Line' Mode, if a single line is larger than
+                                this value, the FlowFile will be routed to 'failure'. A default value of 1 MB is
+                                provided, primarily for 'Entire Text' mode. In 'Line-by-Line' Mode, a value such as 8 KB
+                                or 16 KB is suggested. This value is ignored and the buffer is not used if 'Regular
+                                Expression' is set to '.*'
+                            </description>
+                            <displayName>Maximum Buffer Size</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Maximum Buffer Size</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>Line-by-Line</displayName>
+                                <value>Line-by-Line</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>Entire text</displayName>
+                                <value>Entire text</value>
+                            </allowableValues>
+                            <defaultValue>Entire text</defaultValue>
+                            <description>Evaluate the 'Regular Expression' against each line (Line-by-Line) or buffer
+                                the entire file into memory (Entire Text) and then evaluate the 'Regular Expression'.
+                            </description>
+                            <displayName>Evaluation Mode</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Evaluation Mode</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>(?s:^.*$)</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>a,b,c,d</value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Entire text</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <name>ReplaceText</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <description>FlowFiles that could not be updated are routed to this relationship</description>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <description>FlowFiles that have been successfully updated are routed to this relationship, as well as
+                    FlowFiles whose content does not match the given Regular Expression
+                </description>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <supportsEventDriven>true</supportsEventDriven>
+            <supportsParallelProcessing>true</supportsParallelProcessing>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+        </processors>
+        <processors>
+            <id>7063134a-d245-4cf2-8d07-5f252ab40c85</id>
+            <parentGroupId>0ef4dff7-1324-40b8-9ae8-db3eb4ccd2af</parentGroupId>
+            <position>
+                <x>371.60003662109375</x>
+                <y>-28.199995040893555</y>
+            </position>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <defaultConcurrentTasks>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>EVENT_DRIVEN</key>
+                        <value>0</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>1</value>
+                    </entry>
+                </defaultConcurrentTasks>
+                <defaultSchedulingPeriod>
+                    <entry>
+                        <key>TIMER_DRIVEN</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>CRON_DRIVEN</key>
+                        <value>* * * * * ?</value>
+                    </entry>
+                </defaultSchedulingPeriod>
+                <descriptors>
+                    <entry>
+                        <key>File Size</key>
+                        <value>
+                            <description>The size of the file that will be used</description>
+                            <displayName>File Size</displayName>
+                            <dynamic>false</dynamic>
+                            <name>File Size</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>
+                            <defaultValue>1</defaultValue>
+                            <description>The number of FlowFiles to be transferred in each invocation</description>
+                            <displayName>Batch Size</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Batch Size</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Data Format</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>Binary</displayName>
+                                <value>Binary</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>Text</displayName>
+                                <value>Text</value>
+                            </allowableValues>
+                            <defaultValue>Binary</defaultValue>
+                            <description>Specifies whether the data should be Text or Binary</description>
+                            <displayName>Data Format</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Data Format</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Unique FlowFiles</key>
+                        <value>
+                            <allowableValues>
+                                <displayName>true</displayName>
+                                <value>true</value>
+                            </allowableValues>
+                            <allowableValues>
+                                <displayName>false</displayName>
+                                <value>false</value>
+                            </allowableValues>
+                            <defaultValue>false</defaultValue>
+                            <description>If true, each FlowFile that is generated will be unique. If false, a random
+                                value will be generated and all FlowFiles will get the same content but this offers much
+                                higher throughput
+                            </description>
+                            <displayName>Unique FlowFiles</displayName>
+                            <dynamic>false</dynamic>
+                            <name>Unique FlowFiles</name>
+                            <required>true</required>
+                            <sensitive>false</sensitive>
+                            <supportsEl>false</supportsEl>
+                        </value>
+                    </entry>
+                </descriptors>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>File Size</key>
+                        <value>1 b</value>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>1</value>
+                    </entry>
+                    <entry>
+                        <key>Data Format</key>
+                        <value>Binary</value>
+                    </entry>
+                    <entry>
+                        <key>Unique FlowFiles</key>
+                        <value>false</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>10 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <name>GenerateFlowFile</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <description></description>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <supportsEventDriven>false</supportsEventDriven>
+            <supportsParallelProcessing>true</supportsParallelProcessing>
+            <type>org.apache.nifi.processors.standard.GenerateFlowFile</type>
+        </processors>
+    </snippet>
+    <timestamp>09/22/2015 09:09:59 EDT</timestamp>
+</template>
