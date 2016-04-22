@@ -4,9 +4,8 @@ A collection of templates for use with Apache NiFi and an excel file which indic
 The counts along the top of the excel file indicate how many templates currently use that processor.
 
 # Verification
-I've compiled these templates from many different sources so some flows have undergone more verification than others.
-At the very least I was able to successfully import all of them with NiFi version 0.4.0. 
-
+These templates are compiled from many different sources so some flows have undergone more verification than others.
+At the very least, each of them have been successfully imported into an Apache NiFi instance. 
 
 # Contributing
-I welcome all templates to be added to this directory. I'm hoping that in the future we can have 100% coverage of processors and controller services. If you have a template you'd like me to add just open a pull request.
+All templates are welcome to be added to this directory. In the future there is the goal to have 100% coverage of processors and controller services. If you have a template you'd like to add just open a pull request.
