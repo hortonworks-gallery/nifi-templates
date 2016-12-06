@@ -1,0 +1,430 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.0">
+  <description>This template shows how to use ExecuteScript to populate and fetch from a DistributedMapCacheServer using a DistributedMapCacheClientService. Prior to NiFi 1.0.0 this had to be done manually using the map cache protocol, now the DistributedMapCacheClient can be used directly.</description>
+  <groupId>d0440208-0158-1000-d1d1-c8d79cbd7ec4</groupId>
+  <name>ScriptedMapCacheExample</name>
+  <snippet>
+    <connections>
+      <id>d517ecf7-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>d0440208-0158-1000-0000-000000000000</groupId>
+        <id>d50682c7-0158-1000-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>d0440208-0158-1000-0000-000000000000</groupId>
+        <id>d4ff228b-0158-1000-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>d51f25a1-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>d0440208-0158-1000-0000-000000000000</groupId>
+        <id>d4ff228b-0158-1000-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>d0440208-0158-1000-0000-000000000000</groupId>
+        <id>d51f1b31-0158-1000-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <processors>
+      <id>d4feeba5-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>199.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Script Engine</key>
+            <value>
+              <name>Script Engine</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Script File</key>
+            <value>
+              <name>Script File</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Script Body</key>
+            <value>
+              <name>Script Body</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Module Directory</key>
+            <value>
+              <name>Module Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>cacheClient</key>
+            <value>
+              <name>cacheClient</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Script Engine</key>
+            <value>Groovy</value>
+          </entry>
+          <entry>
+            <key>Script File</key>
+          </entry>
+          <entry>
+            <key>Script Body</key>
+            <value>import org.apache.nifi.controller.ControllerService
+import java.nio.charset.StandardCharsets
+import org.apache.nifi.distributed.cache.client.Serializer
+
+def map = ['first': 'Mary', 'last': 'Smith', 'gender': 'female', 'age': '37']
+
+def stringSerializer = ({String value, out -&gt; out.write(value.getBytes(StandardCharsets.UTF_8))} as Serializer&lt;String&gt;)
+def keySerializer = stringSerializer
+def valueSerializer = stringSerializer
+
+def lookup = context.controllerServiceLookup
+def cacheClientName = cacheClient.value
+
+def cacheClientId = lookup.getControllerServiceIdentifiers(ControllerService).find { 
+    cs -&gt; lookup.getControllerServiceName(cs) == cacheClientName
+}
+def client = lookup.getControllerService(cacheClientId)
+
+map.each {k,v -&gt; client.put(k, v, keySerializer, valueSerializer) }</value>
+          </entry>
+          <entry>
+            <key>Module Directory</key>
+          </entry>
+          <entry>
+            <key>cacheClient</key>
+            <value>MapCacheClient</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>300 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>Populate Map Cache</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.script.ExecuteScript</type>
+    </processors>
+    <processors>
+      <id>d4ff228b-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <position>
+        <x>490.0</x>
+        <y>208.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Script Engine</key>
+            <value>
+              <name>Script Engine</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Script File</key>
+            <value>
+              <name>Script File</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Script Body</key>
+            <value>
+              <name>Script Body</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Module Directory</key>
+            <value>
+              <name>Module Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>cacheClient</key>
+            <value>
+              <name>cacheClient</name>
+            </value>
+          </entry>
+          <entry>
+            <key>getValues</key>
+            <value>
+              <name>getValues</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Script Engine</key>
+            <value>Groovy</value>
+          </entry>
+          <entry>
+            <key>Script File</key>
+          </entry>
+          <entry>
+            <key>Script Body</key>
+            <value>import org.apache.nifi.controller.ControllerService
+import java.nio.charset.StandardCharsets
+import org.apache.nifi.distributed.cache.client.Serializer
+import org.apache.nifi.distributed.cache.client.Deserializer
+
+def flowFile = session.get()
+if(!flowFile) return
+
+def stringSerializer = ({value, out -&gt; out.write(value.getBytes(StandardCharsets.UTF_8))} as Serializer&lt;String&gt;)
+def stringDeserializer = ({input -&gt; (input == null || input.length == 0) ? null : input} as Deserializer&lt;byte[]&gt;)
+
+def keySerializer = stringSerializer
+def valueDeserializer = stringDeserializer
+
+def lookup = context.controllerServiceLookup
+def cacheClientName = cacheClient.value
+
+def cacheClientId = lookup.getControllerServiceIdentifiers(ControllerService).find { 
+    cs -&gt; lookup.getControllerServiceName(cs) == cacheClientName
+}
+def client = lookup.getControllerService(cacheClientId)
+
+def map = [:]
+getValues.value.tokenize(',').each { 
+  map[it] = new String(client.get(it, keySerializer, valueDeserializer))
+}
+flowFile = session.putAllAttributes(flowFile, map)
+session.transfer(flowFile, REL_SUCCESS)</value>
+          </entry>
+          <entry>
+            <key>Module Directory</key>
+          </entry>
+          <entry>
+            <key>cacheClient</key>
+            <value>MapCacheClient</value>
+          </entry>
+          <entry>
+            <key>getValues</key>
+            <value>first,last,gender,age</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>30 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>Fetch from Map Cache</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.script.ExecuteScript</type>
+    </processors>
+    <processors>
+      <id>d50682c7-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <position>
+        <x>491.0</x>
+        <y>437.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Log Level</key>
+            <value>
+              <name>Log Level</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Log Payload</key>
+            <value>
+              <name>Log Payload</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Attributes to Log</key>
+            <value>
+              <name>Attributes to Log</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Attributes to Ignore</key>
+            <value>
+              <name>Attributes to Ignore</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Log prefix</key>
+            <value>
+              <name>Log prefix</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Log Level</key>
+            <value>info</value>
+          </entry>
+          <entry>
+            <key>Log Payload</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Attributes to Log</key>
+          </entry>
+          <entry>
+            <key>Attributes to Ignore</key>
+          </entry>
+          <entry>
+            <key>Log prefix</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>LogAttribute</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.LogAttribute</type>
+    </processors>
+    <processors>
+      <id>d51f1b31-0158-1000-0000-000000000000</id>
+      <parentGroupId>d0440208-0158-1000-0000-000000000000</parentGroupId>
+      <position>
+        <x>487.0</x>
+        <y>0.0</y>
+      </position>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>File Size</key>
+            <value>
+              <name>File Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>
+              <name>Batch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Data Format</key>
+            <value>
+              <name>Data Format</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Unique FlowFiles</key>
+            <value>
+              <name>Unique FlowFiles</name>
+            </value>
+          </entry>
+          <entry>
+            <key>generate-ff-custom-text</key>
+            <value>
+              <name>generate-ff-custom-text</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>File Size</key>
+            <value>0B</value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>1</value>
+          </entry>
+          <entry>
+            <key>Data Format</key>
+            <value>Text</value>
+          </entry>
+          <entry>
+            <key>Unique FlowFiles</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>generate-ff-custom-text</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>30 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>GenerateFlowFile</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.GenerateFlowFile</type>
+    </processors>
+  </snippet>
+  <timestamp>12/06/2016 12:18:09 EST</timestamp>
+</template>
